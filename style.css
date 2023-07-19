@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+
+* {
+  font-family: 'Mynerve', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 20vmin 20vmin 20vmin;
+  grid-template-rows: 6vmin 6vmin 20vmin 20vmin 20vmin;
+}
+
+main * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-name {
+  font-size: 7vmin;
+}
+
+.first-row {
+  margin: 0vmin;
+  font-size: 4vmin;
+}
+
+.second-row {
+  margin: 0vmin;
+  font-size: 5vmin;
+}
+
+
+button {
+  justify-self: center;
+  width: 15vmin;
+  margin: 2vmin;
+  background-color: white;
+  color: black;
+  border: 1vmin solid black;
+  border-radius: 4vmin;
+  font-size: 4vmin;
+  outline: none;
+}
+
+.hoverInTurnX,
+#xwin {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.hoverInTurnO,
+#owin {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.clickInTurnX {
+  background-color: red;
+  font-size: 30vim;
+  font-size: 6vmin;
+}
+
+.clickInTurnO {
+  background-color: yellow;
+  font-size: 30vim;
+  font-size: 6vmin;
+}
+
+#reset-button {
+  font-size: 3vmin;
+  background-color: lightgray;
+  width: auto;
+  height: 10vmin;
+}
