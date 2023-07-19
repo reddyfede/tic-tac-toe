@@ -9,7 +9,6 @@ body {
   height: 100vh;
   flex-direction: column;
   background-color: lightblue;
-  overflow: none;
 }
 
 main {
