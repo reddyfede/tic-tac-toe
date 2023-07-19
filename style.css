@@ -9,6 +9,7 @@ body {
   height: 100vh;
   flex-direction: column;
   background-color: lightblue;
+  overflow: none;
 }
 
 main {
@@ -29,16 +30,16 @@ main * {
   align-items: center;
 }
 
-#game-name {
+#gameName {
   font-size: 7vmin;
 }
 
-.first-row {
+.firstRow {
   margin: 0vmin;
   font-size: 4vmin;
 }
 
-.second-row {
+.secondRow {
   margin: 0vmin;
   font-size: 5vmin;
 }
@@ -66,6 +67,10 @@ button {
   background-color: rgba(255, 255, 0, 0.3);
 }
 
+#tie {
+  background-color: rgba(128, 128, 128, 0.3)
+}
+
 .clickInTurnX {
   background-color: red;
   font-size: 30vim;
@@ -78,9 +83,24 @@ button {
   font-size: 6vmin;
 }
 
-#reset-button {
-  font-size: 3vmin;
+#resetButton {
   background-color: lightgray;
   width: auto;
   height: 10vmin;
+
+}
+
+.resetBtn {
+  font-size: 3vmin;
+  border: .5vmin solid black;
+}
+
+
+.onGameEnd {
+  font-size: 5vmin;
+  border: 1vmin solid black;
+}
+
+.tieGame {
+  background-color: lightgrey;
 }

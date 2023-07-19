@@ -4,16 +4,18 @@ let turn;
 let grid;
 let players;
 let winner;
+let tie;
 
 /*----- cached element references -----*/
 
 const btnEls = document.querySelectorAll(".gameBtn")
 const playerXEl = document.getElementById("PlayerX")
 const playerOEl = document.getElementById("PlayerO")
-const btnReset = document.getElementById("reset-button")
+const resetBtnEl = document.getElementById("resetButton")
 const bodyEl = document.querySelector("body")
 const xwinEl = document.getElementById("xwin")
 const owinEl = document.getElementById("owin")
+const tieEl = document.getElementById("tie")
 
 /*----- event listeners -----*/
 
@@ -24,7 +26,11 @@ for (btn of btnEls) {
     btn.addEventListener("click", mouseClickHandler)
 }
 
-btnReset.addEventListener("click", resetClickHandler)
+
+resetBtnEl.addEventListener("mouseover", resetMouseOverHandler)
+resetBtnEl.addEventListener("mouseout", resetMouseOutHandler)
+resetBtnEl.addEventListener("click", resetClickHandler)
+
 
 /*----- functions -----*/
 
@@ -32,8 +38,11 @@ function init() {
 
     bodyEl.classList.remove("hoverInTurnX")
     bodyEl.classList.remove("hoverInTurnO")
-    xwinEl.style.visibility = ("hidden");
-    owinEl.style.visibility = ("hidden");
+    bodyEl.classList.remove("tieGame")
+    xwinEl.style.visibility = ("hidden")
+    owinEl.style.visibility = ("hidden")
+    tieEl.style.visibility = ("hidden")
+    resetBtnEl.classList.remove("onGameEnd")
 
     for (btn of btnEls) {
         btn.disabled = false
@@ -43,8 +52,9 @@ function init() {
 
     players = ["X", "O"]
     winner = ""
+    tie = false
 
-    turn = players[Math.floor(Math.random() * players.length)];
+    turn = players[Math.floor(Math.random() * players.length)]
     changeTurn()
 
     grid = ["", "", "", "", "", "", "", "", ""]
@@ -63,9 +73,9 @@ function mouseOverHandler(e) {
     e.target.innerText = turn
 
     if (turn === players[0]) {
-        e.target.classList.toggle("hoverInTurnX")
+        e.target.classList.add("hoverInTurnX")
     } else {
-        e.target.classList.toggle("hoverInTurnO")
+        e.target.classList.add("hoverInTurnO")
     }
 }
 
@@ -81,9 +91,9 @@ function mouseOutHandler(e) {
     e.target.innerText = ""
 
     if (turn === players[0]) {
-        e.target.classList.toggle("hoverInTurnX")
+        e.target.classList.remove("hoverInTurnX")
     } else {
-        e.target.classList.toggle("hoverInTurnO")
+        e.target.classList.remove("hoverInTurnO")
     }
 }
 
@@ -100,10 +110,10 @@ function mouseClickHandler(e) {
 
     if (turn === players[0]) {
         e.target.classList.add("clickInTurnX")
-        e.target.classList.toggle("hoverInTurnX")
+        e.target.classList.remove("hoverInTurnX")
     } else {
         e.target.classList.add("clickInTurnO")
-        e.target.classList.toggle("hoverInTurnO")
+        e.target.classList.remove("hoverInTurnO")
     }
 
     render()
@@ -114,8 +124,16 @@ function mouseClickHandler(e) {
 
 }
 
-function resetClickHandler(e) {
+function resetClickHandler() {
     init()
+}
+
+function resetMouseOverHandler(e) {
+    e.target.style.backgroundColor = "grey"
+}
+
+function resetMouseOutHandler(e) {
+    e.target.style.backgroundColor = "lightgrey"
 }
 
 function changeTurn() {
@@ -153,9 +171,30 @@ function checkWin() {
     }
 
     if (winner === "") {
+        checkTie(winGrid)
+    }
+
+    if (winner === "" && !tie) {
         changeTurn()
     } else {
         renderWin()
+    }
+
+}
+
+function checkTie(winGrid) {
+
+    tie = true;
+
+    for (el of winGrid) {
+        if (el.length !== 3) {
+            tie = false;
+            break
+        }
+    }
+
+    if (tie) {
+        renderTie()
     }
 
 }
@@ -168,12 +207,14 @@ function renderWin() {
     if (winner === players[0]) {
         bodyEl.classList.add("hoverInTurnX")
         xwinEl.style.visibility = ("visible")
-    } else {
+    } else if (winner === players[1]) {
         bodyEl.classList.add("hoverInTurnO")
         owinEl.style.visibility = ("visible")
     }
 
+    resetBtnEl.classList.add("onGameEnd")
 }
+
 
 function render() {
     renderGrid()
@@ -183,6 +224,14 @@ function renderGrid() {
     for (btn of btnEls) {
         btn.innerText = grid[parseInt(btn.id)]
     }
+}
+
+function renderTie() {
+    bodyEl.classList.add("tieGame")
+    tieEl.style.visibility = ("visible")
+    resetBtnEl.classList.add("onGameEnd")
+    playerOEl.classList.remove("hoverInTurnO")
+    playerXEl.classList.remove("hoverInTurnX")
 }
 
 /*----- let's go -----*/
