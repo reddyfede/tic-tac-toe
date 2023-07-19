@@ -36,6 +36,8 @@ resetBtnEl.addEventListener("click", resetClickHandler)
 
 function init() {
 
+    grid = ["", "", "", "", "", "", "", "", ""]
+
     bodyEl.classList.remove("hoverInTurnX")
     bodyEl.classList.remove("hoverInTurnO")
     bodyEl.classList.remove("tieGame")
@@ -124,7 +126,8 @@ function mouseClickHandler(e) {
 
 }
 
-function resetClickHandler() {
+function resetClickHandler(e) {
+    e.target.style.backgroundColor = "lightgrey"
     init()
 }
 
