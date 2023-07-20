@@ -45,6 +45,8 @@ function init() {
     owinEl.style.visibility = ("hidden")
     tieEl.style.visibility = ("hidden")
     resetBtnEl.classList.remove("onGameEnd")
+    playerXEl.classList.remove("xwin")
+    playerOEl.classList.remove("owin")
 
     for (btn of btnEls) {
         btn.disabled = false
@@ -209,9 +211,11 @@ function renderWin() {
 
     if (winner === players[0]) {
         bodyEl.classList.add("hoverInTurnX")
+        playerXEl.classList.add("xwin")
         xwinEl.style.visibility = ("visible")
     } else if (winner === players[1]) {
         bodyEl.classList.add("hoverInTurnO")
+        playerOEl.classList.add("owin")
         owinEl.style.visibility = ("visible")
     }
 

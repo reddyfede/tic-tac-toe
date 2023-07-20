@@ -57,18 +57,24 @@ button {
   outline: none;
 }
 
-.hoverInTurnX,
-#xwin {
-  background-color: rgba(255, 0, 0, 0.3);
+.hoverInTurnX{
+  background-color: rgb(255, 170, 170);
 }
 
-.hoverInTurnO,
-#owin {
-  background-color: rgba(255, 255, 0, 0.3);
+.hoverInTurnO{
+  background-color: rgb(255, 255, 170);
 }
 
 #tie {
   background-color: rgba(128, 128, 128, 0.3)
+}
+
+#owin, .owin{
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+#xwin, .xwin {
+  background-color: rgb(255, 0, 0, 0.3);
 }
 
 .clickInTurnX {
