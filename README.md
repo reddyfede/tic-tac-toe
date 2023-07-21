@@ -4,7 +4,7 @@ That's my attempt to build a tic-tac-toe game, as a lab work for my first week i
 
 ## Game Screenshots
 
-![Game Board](https://github.com/reddyfede/tic-tac-toe/assets/106488356/a36bfe88-ccd0-4ebb-bca1-3dd4202372df) ![Red Player Win](https://github.com/reddyfede/tic-tac-toe/assets/106488356/c9f6fec6-c3af-4034-ab96-3888bf6fdcee) ![Yellow Player Win](https://github.com/reddyfede/tic-tac-toe/assets/106488356/c8d618ff-8b22-4a7f-81f3-117d47c2ab51)
+![Game Board](https://github.com/reddyfede/tic-tac-toe/assets/106488356/3e333170-0c6d-48a3-924b-13bd1a1531e9) ![Red Player Win](https://github.com/reddyfede/tic-tac-toe/assets/106488356/83a1a5b5-aa52-45db-bd64-3fe3cbe9afcc) ![Yellow Player Win](https://github.com/reddyfede/tic-tac-toe/assets/106488356/f602d50e-1624-4afe-a2f0-231ccaea43c0)
 
 ## Technologies Used
 
