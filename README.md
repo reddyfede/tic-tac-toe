@@ -11,7 +11,7 @@ That's my attempt to build a tic-tac-toe game, as a lab work for my first week i
 - HTML - CSS - JS
 - DOM manipulation
 
-## Next Steps
+## Future Add-on
 
 - Add a score tracker
 - Add a turn countdown
